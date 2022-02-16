@@ -219,13 +219,13 @@ middleware
 
 ### #3.6 Middlewares part Two
 
-middleware를 use하는 게 먼저오고, 그다음에 URL의 get이 와야 해
-middleware를 위에다 두면, 모든 route에 적용되는 거야
+middleware를 use하는 게 먼저오고, 그다음에 URL의 get이 와야 함
+middleware를 위에다 두면, 모든 route에 적용
 
-req.method, req.url : 어떤 method가 어느 url로 향하는지 알 수 있어.
+req.method, req.url : 어떤 method가 어느 url로 향하는지 알 수 있음
 middleware를 app 전체에 어떤 url에서도 사용할 수 있도록 할 수도 있고,
-middleware 하나의 url에만 사용되게 할 수도 있어
-어떤 middleware는 next 함수를 호출하고, 어떤 middleware는 res.send를 사용하지
+middleware 하나의 url에만 사용되게 할 수도 있음
+어떤 middleware는 next 함수를 호출하고, 어떤 middleware는 res.send를 사용
 
 ```js
 const logger = (req, res, next) => {
@@ -251,12 +251,22 @@ app.use(privateMiddleware);
 app.get("/protected", handleProtected);
 ```
 
-### #3.7 Setup Recap
-
-### #3.8 Servers Recap
-
-### #3.9 Controllers Recap
-
 ### #3.10 Middleware Recap
 
+req.path
+
 ### #3.11 External Middlewares
+
+morgan : npm i morgan
+
+- dev : GET, path, status code 정보를 가지고 있음
+- combined : 시간, method, http 버전, 사용중인 브라우저, os 등
+- common
+- short
+- tiny
+
+```js
+import morgan from "morgan";
+const logger = morgan("dev");
+app.use(logger);
+```
